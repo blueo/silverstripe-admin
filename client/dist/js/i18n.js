@@ -1,1 +1,250 @@
-!function(e){function t(a){if(n[a])return n[a].exports;var r=n[a]={i:a,l:!1,exports:{}};return e[a].call(r.exports,r,r.exports,t),r.l=!0,r.exports}var n={};t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,a){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:a})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=0)}([function(e,t,n){"use strict";function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var a=t[n];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}return function(t,n,a){return n&&e(t.prototype,n),a&&e(t,a),t}}(),i=function(){function e(){a(this,e),this.defaultLocale="en_US",this.currentLocale=this.detectLocale(),this.lang={}}return r(e,[{key:"setLocale",value:function(e){this.currentLocale=e}},{key:"getLocale",value:function(){return null!==this.currentLocale?this.currentLocale:this.defaultLocale}},{key:"_t",value:function(e,t,n,a){var r=this.getLocale().replace(/_[\w]+/i,""),i=this.defaultLocale.replace(/_[\w]+/i,"");return this.lang&&this.lang[this.getLocale()]&&this.lang[this.getLocale()][e]?this.lang[this.getLocale()][e]:this.lang&&this.lang[r]&&this.lang[r][e]?this.lang[r][e]:this.lang&&this.lang[this.defaultLocale]&&this.lang[this.defaultLocale][e]?this.lang[this.defaultLocale][e]:this.lang&&this.lang[i]&&this.lang[i][e]?this.lang[i][e]:t||""}},{key:"addDictionary",value:function(e,t){void 0===this.lang[e]&&(this.lang[e]={});for(var n in t)this.lang[e][n]=t[n]}},{key:"getDictionary",value:function(e){return this.lang[e]}},{key:"stripStr",value:function(e){return e.replace(/^\s*/,"").replace(/\s*$/,"")}},{key:"stripStrML",value:function(e){for(var t=e.split("\n"),n=0;n<t.length;n+=1)t[n]=stripStr(t[n]);return stripStr(t.join(" "))}},{key:"sprintf",value:function(e){for(var t=arguments.length,n=Array(t>1?t-1:0),a=1;a<t;a++)n[a-1]=arguments[a];if(0===n.length)return e;var r=new RegExp("(.?)(%s)","g"),i=0;return e.replace(r,function(e,t,a,r,o){return"%"===t?e:t+n[i++]})}},{key:"inject",value:function(e,t){var n=new RegExp("{([A-Za-z0-9_]*)}","g");return e.replace(n,function(e,n,a,r){return t[n]?t[n]:e})}},{key:"detectLocale",value:function(){var t,n;if(!(t=document.body.getAttribute("lang")))for(var a=document.getElementsByTagName("meta"),r=0;r<a.length;r++)a[r].attributes["http-equiv"]&&"content-language"==a[r].attributes["http-equiv"].nodeValue.toLowerCase()&&(t=a[r].attributes.content.nodeValue);t||(t=this.defaultLocale);var i=t.match(/([^-|_]*)[-|_](.*)/);if(2==t.length){for(var o in e.lang)if(o.substr(0,2).toLowerCase()==t.toLowerCase()){n=o;break}}else i&&(n=i[1].toLowerCase()+"_"+i[2].toUpperCase());return n}},{key:"addEvent",value:function(e,t,n,a){return e.addEventListener?(e.addEventListener(t,n,a),!0):e.attachEvent?e.attachEvent("on"+t,n):void console.log("Handler could not be attached")}}]),e}(),o=new i;window.ss=void 0!==window.ss?window.ss:{},window.ss.i18n=window.i18n=o,t.default=o}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var i18n = function () {
+	function i18n() {
+		_classCallCheck(this, i18n);
+
+		this.defaultLocale = 'en_US';
+		this.currentLocale = this.detectLocale();
+		this.lang = {};
+	}
+
+	_createClass(i18n, [{
+		key: 'setLocale',
+		value: function setLocale(locale) {
+			this.currentLocale = locale;
+		}
+	}, {
+		key: 'getLocale',
+		value: function getLocale() {
+			return this.currentLocale !== null ? this.currentLocale : this.defaultLocale;
+		}
+	}, {
+		key: '_t',
+		value: function _t(entity, fallbackString, priority, context) {
+			var langName = this.getLocale().replace(/_[\w]+/i, '');
+			var defaultlangName = this.defaultLocale.replace(/_[\w]+/i, '');
+
+			if (this.lang && this.lang[this.getLocale()] && this.lang[this.getLocale()][entity]) {
+				return this.lang[this.getLocale()][entity];
+			} else if (this.lang && this.lang[langName] && this.lang[langName][entity]) {
+				return this.lang[langName][entity];
+			} else if (this.lang && this.lang[this.defaultLocale] && this.lang[this.defaultLocale][entity]) {
+				return this.lang[this.defaultLocale][entity];
+			} else if (this.lang && this.lang[defaultlangName] && this.lang[defaultlangName][entity]) {
+				return this.lang[defaultlangName][entity];
+			} else if (fallbackString) {
+				return fallbackString;
+			} else {
+				return '';
+			}
+		}
+	}, {
+		key: 'addDictionary',
+		value: function addDictionary(locale, dict) {
+			if (typeof this.lang[locale] === 'undefined') {
+				this.lang[locale] = {};
+			}
+
+			for (var entity in dict) {
+				this.lang[locale][entity] = dict[entity];
+			}
+		}
+	}, {
+		key: 'getDictionary',
+		value: function getDictionary(locale) {
+			return this.lang[locale];
+		}
+	}, {
+		key: 'stripStr',
+		value: function stripStr(str) {
+			return str.replace(/^\s*/, '').replace(/\s*$/, '');
+		}
+	}, {
+		key: 'stripStrML',
+		value: function stripStrML(str) {
+			var parts = str.split('\n');
+
+			for (var i = 0; i < parts.length; i += 1) {
+				parts[i] = stripStr(parts[i]);
+			}
+
+			return stripStr(parts.join(' '));
+		}
+	}, {
+		key: 'sprintf',
+		value: function sprintf(s) {
+			for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+				params[_key - 1] = arguments[_key];
+			}
+
+			if (params.length === 0) {
+				return s;
+			}
+
+			var regx = new RegExp('(.?)(%s)', 'g');
+
+			var i = 0;
+
+			return s.replace(regx, function (match, subMatch1, subMatch2, offset, string) {
+				if (subMatch1 === '%') {
+					return match;
+				}
+
+				return subMatch1 + params[i++];
+			});
+		}
+	}, {
+		key: 'inject',
+		value: function inject(s, map) {
+			var regx = new RegExp('\{([A-Za-z0-9_]*)\}', 'g');
+
+			return s.replace(regx, function (match, key, offset, string) {
+				return map[key] ? map[key] : match;
+			});
+		}
+	}, {
+		key: 'detectLocale',
+		value: function detectLocale() {
+			var rawLocale;
+			var detectedLocale;
+
+			rawLocale = document.body.getAttribute('lang');
+
+			if (!rawLocale) {
+				var metas = document.getElementsByTagName('meta');
+
+				for (var i = 0; i < metas.length; i++) {
+					if (metas[i].attributes['http-equiv'] && metas[i].attributes['http-equiv'].nodeValue.toLowerCase() == 'content-language') {
+						rawLocale = metas[i].attributes['content'].nodeValue;
+					}
+				}
+			}
+
+			if (!rawLocale) {
+				rawLocale = this.defaultLocale;
+			}
+
+			var rawLocaleParts = rawLocale.match(/([^-|_]*)[-|_](.*)/);
+
+			if (rawLocale.length == 2) {
+				for (var compareLocale in i18n.lang) {
+					if (compareLocale.substr(0, 2).toLowerCase() == rawLocale.toLowerCase()) {
+						detectedLocale = compareLocale;
+						break;
+					}
+				}
+			} else if (rawLocaleParts) {
+				detectedLocale = rawLocaleParts[1].toLowerCase() + '_' + rawLocaleParts[2].toUpperCase();
+			}
+
+			return detectedLocale;
+		}
+	}, {
+		key: 'addEvent',
+		value: function addEvent(obj, evType, fn, useCapture) {
+			if (obj.addEventListener) {
+				obj.addEventListener(evType, fn, useCapture);
+				return true;
+			} else if (obj.attachEvent) {
+				return obj.attachEvent('on' + evType, fn);
+			} else {
+				console.log('Handler could not be attached');
+			}
+		}
+	}]);
+
+	return i18n;
+}();
+
+var _i18n = new i18n();
+
+window.ss = typeof window.ss !== 'undefined' ? window.ss : {};
+window.ss.i18n = window.i18n = _i18n;
+
+exports.default = _i18n;
+
+/***/ })
+/******/ ]);
+//# sourceMappingURL=i18n.js.map
